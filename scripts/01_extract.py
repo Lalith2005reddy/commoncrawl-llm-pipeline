@@ -16,6 +16,7 @@ from warcio.archiveiterator import ArchiveIterator
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from common.schema import Record
 from common.routing import extract_text
+from common.encoding import decode_html
 
 
 def make_id(warc_source: str, warc_record_id: str) -> str:
@@ -43,7 +44,7 @@ def process_warc(warc_path: str, out_path: str):
 
             try:
                 html_bytes = record.content_stream().read()
-                html = html_bytes.decode("utf-8", errors="ignore")
+                html = decode_html(html_bytes, content_type)
             except Exception:
                 continue
 
