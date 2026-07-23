@@ -1,0 +1,22 @@
+# Data (large, regenerable - never commit)
+data/
+*.warc
+*.warc.gz
+*.jsonl
+*.jsonl.gz
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# OS/editor
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
